@@ -1,5 +1,3 @@
-declare global fairingDeploy to 0.
-
 declare global function (gravTurn) {    // gravity-turn sequence
     if ALT:APOAPSIS > 150000 {
         lock steering to up + 90.
@@ -33,23 +31,28 @@ declare global function (gravTurn) {    // gravity-turn sequence
     }
 }
 
+set TERMINAL:WIDTH
 declare global function (telemetry) {   // displays the status of the flight
     clearscreen.
-    print "TELEMETRY".
-    print "==============".
-    print "ALTITUDE [ASL]".
-    print ALT:RADAR.
-    print "==============".
-    print "ALTITUDE [APO]".
-    print ALT:APOAPSIS.
-    print "==============".
-    print "VELOCITY".
-    print VELOCITY.
-    print "==============".
-    print "FAIRING DEPLOY".
-    print fairingDeploy.
+    print SHIPNAME.
+    print " ______________________________".
+    print "|                              |"
+    print "| ALTITUDE [ASL] = " + ALT:RADAR.
+    print "|" at(43,4).
+    print "| ALTITUDE [APO] = " + ALT:APOAPSIS.
+    print "|" at(43,5).
+    print "| VELOCITY       = " + VELOCITY.
+    print "|" at(43,6).
+    print "|______________________________|".
+    print "FAIRING STATUS".
+    if fairingDeploy = 0 {
+        print "CLOSED"
+    } else {
+        print "DEPLOYED"
+    }
 }
 
+declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function (fairingDeployment) {   // controls the deployment of fairings
     if SHIP:DYNAMICPRESSURE < 0.1 {
         if fairingDeploy = 0 {
