@@ -33,27 +33,25 @@ declare global function (gravTurn) {    // gravity-turn sequence
 
 set TERMINAL:WIDTH to 32.
 set TERMINAL:HEIGHT to 10.
-
 declare global function (telemetry) {   // displays the status of the flight
- if fairingDeploy = 0 {
-        declare global fairingStatus to "CLOSED      |".
-    } else {
-        declare global fairingStatus to "DEPLOYED    |".
-    }
-
     clearscreen.
     print SHIPNAME.
     print " ______________________________ ".
     print "|                              |"
     print "| ALTITUDE [ASL] = " + ALT:RADAR.
-    print "|" at(43,4).
+    print "|" at(19,4).
     print "| ALTITUDE [APO] = " + ALT:APOAPSIS.
-    print "|" at(43,5).
+    print "|" at(19,5).
     print "| VELOCITY       = " + VELOCITY.
-    print "|" at(43,6).
+    print "|" at(19,6).
     print "|______________________________|".
     print "|                              |".
-    print "| FAIRING STATUS = " + fairingStatus. 
+    print "| FAIRING STATUS = " + .
+    if fairingDeploy = 0 {
+        print "CLOSED      |" at (19,9).
+    } else {
+        print "DEPLOYED    |"at (19,9).
+    }
     print "|______________________________|".
 }
 
