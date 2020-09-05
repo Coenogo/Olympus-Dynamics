@@ -970,6 +970,14 @@ declare global function splashScreen {    // creates a screen that displays the 
     wait 2.
 }
 
+declare global function secondStageDeployment {
+    if STAGE:NUMBER = 2 {
+        if STAGE:KEROSENE = 0 {
+            STAGE.
+        }
+    }
+}
+
 declare global function gravTurn {    // gravity-turn sequence
     lock steering to navSet.
     if ALT:APOAPSIS > 150000 {
@@ -1049,5 +1057,6 @@ until ALT:PERIAPSIS > 150000 {
     gravTurn().
     telemetry().
     fairingDeployment().
+    secondStageDeployment().
 }
 
