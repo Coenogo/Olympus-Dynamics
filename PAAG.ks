@@ -32,7 +32,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -47,7 +47,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -62,7 +62,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -77,7 +77,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -92,7 +92,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -107,7 +107,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -122,7 +122,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -137,7 +137,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -152,7 +152,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -167,7 +167,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -182,7 +182,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -197,7 +197,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -212,7 +212,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -227,7 +227,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -242,7 +242,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -257,7 +257,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -272,7 +272,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -287,7 +287,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -302,7 +302,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -317,7 +317,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -332,7 +332,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -347,7 +347,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -362,7 +362,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -377,7 +377,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -392,7 +392,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -407,7 +407,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -422,7 +422,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -437,7 +437,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -452,7 +452,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -467,7 +467,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -482,7 +482,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -497,7 +497,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -512,7 +512,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -527,7 +527,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -542,7 +542,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -557,7 +557,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -572,7 +572,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -587,7 +587,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -602,7 +602,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -617,7 +617,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -632,7 +632,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -647,7 +647,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -662,7 +662,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -677,7 +677,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -692,7 +692,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -707,7 +707,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -722,7 +722,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -737,7 +737,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -752,7 +752,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -767,7 +767,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -782,7 +782,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -797,7 +797,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -812,7 +812,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -827,7 +827,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
@@ -842,7 +842,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 1.0.
     clearscreen.
     print "   _________________________________________________________".
@@ -857,7 +857,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -872,7 +872,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -887,7 +887,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -902,7 +902,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -917,7 +917,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -932,7 +932,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -947,7 +947,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 0.1.
     clearscreen.
     print "   _________________________________________________________".
@@ -962,7 +962,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
-    print "==============================================================="
+    print "===============================================================".
     wait 3.
 }
 
