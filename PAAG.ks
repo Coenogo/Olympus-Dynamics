@@ -1014,7 +1014,7 @@ declare global function telemetry {   // displays the status of the flight
     print "|" at (19,6).
     print "|______________________________|".
     print "|                              |".
-    print "| FAIRING STATUS = " + .
+    print "| FAIRING STATUS = ".
     if fairingDeploy = 0 {
         print "CLOSED      |" at (19,9).
     } else {
@@ -1036,6 +1036,11 @@ declare global function fairingDeployment {   // controls the deployment of fair
 // end of global functions
 
 splashScreen().
+
+lock throttle to 1.
+STAGE.
+wait 2.
+STAGE.
 
 until ALT:PERIAPSIS > 150000 {
     gravTurn().
