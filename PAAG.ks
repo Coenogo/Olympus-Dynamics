@@ -970,7 +970,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     wait 2.
 }
 
-declare global function secondStageDeployment {
+declare global function secondStageDeployment {     // deploys the second stage
     if STAGE:NUMBER = 2 {
         if STAGE:KEROSENE = 0 {
             STAGE.
