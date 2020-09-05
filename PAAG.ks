@@ -15,7 +15,7 @@
 
 declare global programVersion to 0.3.4.
 
-declare global function (splashScreen) {    // creates a screen that displays the Olympus Dynamics logo
+declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
     set TERMINAL:WIDTH to 63.
     set TERMINAL:HEIGHT to 13.
@@ -966,7 +966,7 @@ declare global function (splashScreen) {    // creates a screen that displays th
     wait 3.
 }
 
-declare global function (gravTurn) {    // gravity-turn sequence
+declare global function gravTurn {    // gravity-turn sequence
     if ALT:APOAPSIS > 150000 {
         lock steering to up + 90.
         set throttle to 0.0.
@@ -999,7 +999,7 @@ declare global function (gravTurn) {    // gravity-turn sequence
     }
 }
 
-declare global function (telemetry) {   // displays the status of the flight
+declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 32.
     set TERMINAL:HEIGHT to 10.
@@ -1024,7 +1024,7 @@ declare global function (telemetry) {   // displays the status of the flight
 }
 
 declare global fairingDeploy to 0.  // sets the initial status of fairings
-declare global function (fairingDeployment) {   // controls the deployment of fairings
+declare global function fairingDeployment {   // controls the deployment of fairings
     if SHIP:DYNAMICPRESSURE < 0.1 {
         if fairingDeploy = 0 {
             STAGE.
