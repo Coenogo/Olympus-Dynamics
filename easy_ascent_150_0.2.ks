@@ -13,10 +13,12 @@
 // v0.3.4
 //============================================================================
 
+declare global programVersion to 0.3.4.
+
 declare global function (splashScreen) {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
     set TERMINAL:WIDTH to 63.
-    set TERMINAL:HEIGHT to 11.
+    set TERMINAL:HEIGHT to 13.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -28,7 +30,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|   |__/   |   | \| |  | |  | | |___ ___]                     |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -40,7 +45,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -52,7 +60,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -64,7 +75,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -76,7 +90,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -88,7 +105,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -100,7 +120,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -112,7 +135,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -124,7 +150,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -136,7 +165,10 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -148,7 +180,670 @@ declare global function (splashScreen) {    // creates a screen that displays th
     print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
-    wait 0.2.
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____                                                    |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |__                                               |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____                                                    |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |___                                              |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____                                                    |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |____                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____                                                    |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |_____                                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____                                                    |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |_____                                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         _                                          |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |_____                                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __                                         |".
+    print "|   |     | |                                                 |".
+    print "|   |_____| |_____                                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __                                         |".
+    print "|   |     | |        \                                        |".
+    print "|   |_____| |_____                                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __                                         |".
+    print "|   |     | |        \_                                       |".
+    print "|   |_____| |_____    |                                       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __                                         |".
+    print "|   |     | |        \_/                                      |".
+    print "|   |_____| |_____    |                                       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   _                                     |".
+    print "|   |     | |        \_/                                      |".
+    print "|   |_____| |_____    |                                       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __                                    |".
+    print "|   |     | |        \_/                                      |".
+    print "|   |_____| |_____    |                                       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __                                    |".
+    print "|   |     | |        \_/                                      |".
+    print "|   |_____| |_____    |                                       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _                                  |".
+    print "|   |     | |        \_/   |                                  |".
+    print "|   |_____| |_____    |    |                                  |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ __                                 |".
+    print "|   |     | |        \_/   |                                  |".
+    print "|   |_____| |_____    |    |                                  |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ ___                                |".
+    print "|   |     | |        \_/   |                                  |".
+    print "|   |_____| |_____    |    |                                  |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ ____                               |".
+    print "|   |     | |        \_/   |  |                               |".
+    print "|   |_____| |_____    |    |  |                               |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _____                              |".
+    print "|   |     | |        \_/   |  |                               |".
+    print "|   |_____| |_____    |    |  |                               |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ ______                             |".
+    print "|   |     | |        \_/   |  |                               |".
+    print "|   |_____| |_____    |    |  |                               |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______                            |".
+    print "|   |     | |        \_/   |  |  |                            |".
+    print "|   |_____| |_____    |    |  |  |                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______                            |".
+    print "|   |     | |        \_/   |  |  |                            |".
+    print "|   |_____| |_____    |    |  |  |                            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______                            |".
+    print "|   |     | |        \_/   |  |  | |                          |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _                         |".
+    print "|   |     | |        \_/   |  |  | |_                         |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  __                        |".
+    print "|   |     | |        \_/   |  |  | |__                        |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  ___                       |".
+    print "|   |     | |        \_/   |  |  | |___                       |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  ____                      |".
+    print "|   |     | |        \_/   |  |  | |____                      |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____                     |".
+    print "|   |     | |        \_/   |  |  | |_____                     |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____                     |".
+    print "|   |     | |        \_/   |  |  | |_____]                    |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____                     |".
+    print "|   |     | |        \_/   |  |  | |_____]                    |".
+    print "|   |_____| |_____    |    |  |  | |                          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |                  |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |_                 |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |__                |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |___               |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |____              |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _                  |".
+    print "|   |     | |        \_/   |  |  | |_____] |                  |".
+    print "|   |_____| |_____    |    |  |  | |       |_____             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _            |".
+    print "|   |     | |        \_/   |  |  | |_____] |     |            |".
+    print "|   |_____| |_____    |    |  |  | |       |_____|            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _            |".
+    print "|   |     | |        \_/   |  |  | |_____] |     |            |".
+    print "|   |_____| |_____    |    |  |  | |       |_____|            |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ _          |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |          |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| _          |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ __         |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |_         |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| __         |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ ___        |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |__        |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| ___        |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ ____       |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |___       |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| ____       |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ _____      |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |____      |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| _____      |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ ______     |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |_____     |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| ______     |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 0.05.
+    clearscreen.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ _______    |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |______    |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| ______|    |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
+    print "Polaris Automated Ascent Guidance".
+    print "v" + programVersion.
+    print "==============================================================="
+    wait 1.0.
 }
 
 declare global function (gravTurn) {    // gravity-turn sequence
@@ -219,6 +914,8 @@ declare global function (fairingDeployment) {   // controls the deployment of fa
 }
 
 // end of global functions
+
+splashScreen().
 
 until ALT:PERIAPSIS > 150000 {
     gravTurn().
