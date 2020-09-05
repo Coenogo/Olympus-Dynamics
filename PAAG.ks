@@ -1017,24 +1017,20 @@ declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 64.
     set TERMINAL:HEIGHT to 44.
-    print SHIPNAME.
+    print "MISSION: " + SHIPNAME.
     print " ______________________________ ".
     print "|                              |".
-    print "| ALTITUDE [ASL] = " + round(ALT:RADAR).
-    print "|" at (19,4).
-    print "| ALTITUDE [APO] = " + round(ALT:APOAPSIS).
-    print "|" at (19,5).
-    print "| VELOCITY       = " + round(AIRSPEED).
-    print "|" at (19,6).
+    print "| ALTITUDE [ASL] = " + round(ALT:RADAR) + "M" + "|" at (19,4).
+    print "| ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M" + "|" at (19,5).
+    print "| VELOCITY       = " + round(AIRSPEED) + "M/S" + "|" at (19,6).
     print "|______________________________|".
     print "|                              |".
-    print "| FAIRING STATUS = ".
     if fairingDeploy = 0 {
-        print "CLOSED      |" at (19,9).
+        print "| FAIRING STATUS = CLOSED      |".
     } else if fairingDeploy = 1 {
-        print "DEPLOYED    |" at (19,9).
+        print "| FAIRING STATUS = DEPLOYED    |".
     } else {
-        print "ERROR       |" at (19,9).
+        print "| FAIRING STATUS = ERROR       |".
     }
     print "|______________________________|".
 }
