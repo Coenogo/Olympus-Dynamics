@@ -11,7 +11,7 @@
 //
 // Polaris Automated Ascent Guidance
 // v0.3.4
-//===========================================================================
+//============================================================================
 
 declare global function (splashScreen) {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
