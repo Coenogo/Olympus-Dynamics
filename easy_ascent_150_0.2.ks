@@ -31,10 +31,10 @@ declare global function (gravTurn) {    // gravity-turn sequence
     }
 }
 
-set TERMINAL:WIDTH to 32.
-set TERMINAL:HEIGHT to 10.
 declare global function (telemetry) {   // displays the status of the flight
     clearscreen.
+    set TERMINAL:WIDTH to 32.
+    set TERMINAL:HEIGHT to 10.
     print SHIPNAME.
     print " ______________________________ ".
     print "|                              |"
@@ -63,6 +63,22 @@ declare global function (fairingDeployment) {   // controls the deployment of fa
             set fairingDeploy to 1.
         }
     }
+}
+
+declare global function (splashScreen) {    // creates a screen that displays the Olympus Dynamics logo
+    clearscreen.
+    set TERMINAL:WIDTH to 63.
+    set TERMINAL:HEIGHT to 11.
+    print "   _________________________________________________________".
+    print " o                                                           o".
+    print "|    _____         __   __ _______  _____  _     _ _______    |".
+    print "|   |     | |        \_/   |  |  | |_____] |     | |______    |".
+    print "|   |_____| |_____    |    |  |  | |       |_____| ______|    |".
+    print "|   ___  _   _ _  _ ____ _  _ _ ____ ____                     |".
+    print "|   |  \  \_/  |\ | |__| |\/| | |    [__                      |".
+    print "|   |__/   |   | \| |  | |  | | |___ ___]                     |".
+    print "|                                                             |".
+    print " o _________________________________________________________ o".
 }
 
 // end of global functions
