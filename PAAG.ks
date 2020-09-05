@@ -971,35 +971,36 @@ declare global function splashScreen {    // creates a screen that displays the 
 }
 
 declare global function gravTurn {    // gravity-turn sequence
+    lock steering to navSet.
     if ALT:APOAPSIS > 150000 {
-        lock steering to up + 90.
+        set navSet to HEADING(115,0).
         set throttle to 0.0.
     } else if ALT:APOAPSIS > 120000 {
-        lock steering to up + 85.
+        set navSet to HEADING(115,5).
     } else if ALT:APOAPSIS > 110000 {
-        lock steering to up + 80.
+        set navSet to HEADING(115,10).
     } else if ALT:APOAPSIS > 100000 {
-        lock steering to up + 75.
+        set navSet to HEADING(115,15).
     } else if ALT:APOAPSIS > 90000 {
-        lock steering to up + 70.
+        set navSet to HEADING(115,20).
     } else if ALT:APOAPSIS > 80000 {
-        lock steering to up + 65.
+        set navSet to HEADING(115,25).
     } else if ALT:APOAPSIS > 70000 {
-        lock steering to up + 60.
+        set navSet to HEADING(115,30).
     } else if ALT:APOAPSIS > 60000 {
-        lock steering to up + 55.
+        set navSet to HEADING(115,35).
     } else if ALT:APOAPSIS > 50000 {
-        lock steering to up + 50.
+        set navSet to HEADING(115,40).
     } else if ALT:APOAPSIS > 40000 {
-        lock steering to up + 40.
+        set navSet to HEADING(115,50).
     } else if ALT:APOAPSIS > 30000 {
-        lock steering to up + 30.
+        set navSet to HEADING(115,60).
     } else if ALT:APOAPSIS > 20000 {
-        lock steering to up + 20.
+        set navSet to HEADING(115,70).
     } else if ALT:APOAPSIS > 10000 {
-        lock steering to up + 10.
+        set navSet to HEADING(115,80).
     } else {
-        lock steering to up.
+        set navSet to HEADING(115,90).
     }
 }
 
