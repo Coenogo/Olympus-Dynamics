@@ -19,15 +19,17 @@ declare global function splashScreen {    // creates a screen that displays the 
     clearscreen.
     set TERMINAL:WIDTH to 63.
     set TERMINAL:HEIGHT to 13.
+    set V0 to getvoice(0). // Gets a reference to the zero-th voice in the chip.
+    V0:PLAY( NOTE(400, 0.5) ).  // Starts a note at 400 Hz for 0.5 seconds.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
-    print "|    _____         __   __ _______  _____  _     _ _______    |".
-    print "|   |     | |        \_/   |  |  | |_____] |     | |______    |".
-    print "|   |_____| |_____    |    |  |  | |       |_____| ______|    |".
-    print "|   ___  _   _ _  _ ____ _  _ _ ____ ____                     |".
-    print "|   |  \  \_/  |\ | |__| |\/| | |    [__                      |".
-    print "|   |__/   |   | \| |  | |  | | |___ ___]                     |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
+    print "|                                                             |".
     print "|                                                             |".
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
@@ -169,6 +171,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print "v" + programVersion.
     print "===============================================================".
     wait 0.05.
+    V0:PLAY( NOTE(500, 0.5) ).  // Starts a note at 500 Hz for 0.5 seconds.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -319,6 +322,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print "v" + programVersion.
     print "===============================================================".
     wait 0.05.
+    V0:PLAY( NOTE(600, 1) ).  // Starts a note at 600 Hz for 1 second.
     clearscreen.
     print "   _________________________________________________________".
     print " o                                                           o".
@@ -963,7 +967,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
     print "===============================================================".
-    wait 3.
+    wait 2.
 }
 
 declare global function gravTurn {    // gravity-turn sequence
@@ -999,30 +1003,6 @@ declare global function gravTurn {    // gravity-turn sequence
     }
 }
 
-declare global function telemetry {   // displays the status of the flight
-    clearscreen.
-    set TERMINAL:WIDTH to 32.
-    set TERMINAL:HEIGHT to 10.
-    print SHIPNAME.
-    print " ______________________________ ".
-    print "|                              |".
-    print "| ALTITUDE [ASL] = " + ALT:RADAR.
-    print "|" at (19,4).
-    print "| ALTITUDE [APO] = " + ALT:APOAPSIS.
-    print "|" at (19,5).
-    print "| VELOCITY       = " + VELOCITY.
-    print "|" at (19,6).
-    print "|______________________________|".
-    print "|                              |".
-    print "| FAIRING STATUS = ".
-    if fairingDeploy = 0 {
-        print "CLOSED      |" at (19,9).
-    } else {
-        print "DEPLOYED    |" at (19,9).
-    }
-    print "|______________________________|".
-}
-
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
     if SHIP:DYNAMICPRESSURE < 0.1 {
@@ -1033,13 +1013,39 @@ declare global function fairingDeployment {   // controls the deployment of fair
     }
 }
 
+declare global function telemetry {   // displays the status of the flight
+    clearscreen.
+    set TERMINAL:WIDTH to 32.
+    set TERMINAL:HEIGHT to 11.
+    print SHIPNAME.
+    print " ______________________________ ".
+    print "|                              |".
+    print "| ALTITUDE [ASL] = " + round(ALT:RADAR).
+    print "|" at (19,4).
+    print "| ALTITUDE [APO] = " + round(ALT:APOAPSIS).
+    print "|" at (19,5).
+    print "| VELOCITY       = " + round(VELOCITY).
+    print "|" at (19,6).
+    print "|______________________________|".
+    print "|                              |".
+    print "| FAIRING STATUS = ".
+    if fairingDeploy = 0 {
+        print "CLOSED      |" at (19,9).
+    } else if fairingDeploy = 1 {
+        print "DEPLOYED    |" at (19,9).
+    } else {
+        print "ERROR       |" at (19,9).
+    }
+    print "|______________________________|".
+}
+
 // end of global functions
 
 splashScreen().
 
 lock throttle to 1.
 STAGE.
-wait 2.
+wait 2.5.
 STAGE.
 
 until ALT:PERIAPSIS > 150000 {
