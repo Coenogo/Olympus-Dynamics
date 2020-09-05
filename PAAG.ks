@@ -1015,8 +1015,8 @@ declare global function fairingDeployment {   // controls the deployment of fair
 
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
-    set TERMINAL:WIDTH to 32.
-    set TERMINAL:HEIGHT to 11.
+    set TERMINAL:WIDTH to 64.
+    set TERMINAL:HEIGHT to 44.
     print SHIPNAME.
     print " ______________________________ ".
     print "|                              |".
