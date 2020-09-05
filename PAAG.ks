@@ -1005,7 +1005,7 @@ declare global function telemetry {   // displays the status of the flight
     set TERMINAL:HEIGHT to 10.
     print SHIPNAME.
     print " ______________________________ ".
-    print "|                              |"
+    print "|                              |".
     print "| ALTITUDE [ASL] = " + ALT:RADAR.
     print "|" at (19,4).
     print "| ALTITUDE [APO] = " + ALT:APOAPSIS.
