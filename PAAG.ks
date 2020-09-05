@@ -1024,7 +1024,7 @@ declare global function telemetry {   // displays the status of the flight
     print "|" at (19,4).
     print "| ALTITUDE [APO] = " + round(ALT:APOAPSIS).
     print "|" at (19,5).
-    print "| VELOCITY       = " + round(VELOCITY).
+    print "| VELOCITY       = " + round(AIRSPEED).
     print "|" at (19,6).
     print "|______________________________|".
     print "|                              |".
