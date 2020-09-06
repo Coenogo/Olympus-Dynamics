@@ -10,10 +10,10 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.3.4
+// v0.3.6
 //============================================================================
 
-declare global programVersion to 0.3.4.
+declare global programVersion to 0.3.6.
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
