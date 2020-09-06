@@ -971,7 +971,7 @@ declare global function splashScreen {    // creates a screen that displays the 
 }
 
 declare global function secondStageDeployment {     // deploys the second stage
-    if STAGE:KEROSENE = 0 {
+    if STAGE:KEROSENE = 2 {
         STAGE.
     }
 }
@@ -1022,9 +1022,11 @@ declare global function fairingDeployment {   // controls the deployment of fair
 
 declare global boosterSep to 0.
 declare global function boosterSeperate {
-    if SHIP:PBAN < 200 {
-        STAGE.
-        set boosterSep to 1.
+    if boosterSep = 0{
+        if SHIP:PBAN < 0 {
+            STAGE.
+            set boosterSep to 1.
+        }
     }
 }
 
