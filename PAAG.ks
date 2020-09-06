@@ -1046,9 +1046,10 @@ declare global function telemetry {   // displays the status of the flight
 splashScreen().
 
 lock throttle to 1.
+AG1.
 STAGE.
 wait 2.5.
-AG1.
+AG2.
 STAGE.
 
 until ALT:PERIAPSIS > 150000 {
