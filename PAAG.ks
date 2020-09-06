@@ -1012,7 +1012,7 @@ declare global function gravTurn {    // gravity-turn sequence
 
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
-    if ALT:RADAR > 50000 {
+    if ALT:RADAR > 70000 {
         if fairingDeploy = 0 {
             STAGE.
             set fairingDeploy to 1.
