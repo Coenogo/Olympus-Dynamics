@@ -1014,7 +1014,7 @@ declare global function gravTurn {    // gravity-turn sequence
 
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
-    if SHIP:DYNAMICPRESSURE < 0.1 {
+    if ALT:RADAR > 50000 {
         if fairingDeploy = 0 {
             STAGE.
             set fairingDeploy to 1.
@@ -1024,24 +1024,21 @@ declare global function fairingDeployment {   // controls the deployment of fair
 
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
-    set TERMINAL:WIDTH to 64.
-    set TERMINAL:HEIGHT to 44.
+    set TERMINAL:WIDTH to 42.
+    set TERMINAL:HEIGHT to 8.
     print "MISSION: " + SHIPNAME.
-    print " ______________________________ ".
-    print "|                              |".
-    print "| ALTITUDE [ASL] = " + round(ALT:RADAR) + "M" + "|" at (19,4).
-    print "| ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M" + "|" at (19,5).
-    print "| VELOCITY       = " + round(AIRSPEED) + "M/S" + "|" at (19,6).
-    print "|______________________________|".
-    print "|                              |".
+    print "______________________________".
+    print "ALTITUDE [ASL] = " + round(ALT:RADAR) + "M".
+    print "ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M".
+    print "VELOCITY       = " + round(AIRSPEED) + "M/S".
     if fairingDeploy = 0 {
-        print "| FAIRING STATUS = CLOSED      |".
+        print "FAIRING STATUS = CLOSED".
     } else if fairingDeploy = 1 {
-        print "| FAIRING STATUS = DEPLOYED    |".
+        print "FAIRING STATUS = DEPLOYED".
     } else {
-        print "| FAIRING STATUS = ERROR       |".
+        print "FAIRING STATUS = ERROR".
     }
-    print "|______________________________|".
+    print "______________________________".
 }
 
 // end of global functions
@@ -1051,6 +1048,7 @@ splashScreen().
 lock throttle to 1.
 STAGE.
 wait 2.5.
+AG1.
 STAGE.
 
 until ALT:PERIAPSIS > 150000 {
