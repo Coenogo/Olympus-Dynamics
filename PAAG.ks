@@ -971,10 +971,8 @@ declare global function splashScreen {    // creates a screen that displays the 
 }
 
 declare global function secondStageDeployment {     // deploys the second stage
-    if STAGE:NUMBER = 2 {
-        if STAGE:KEROSENE = 0 {
-            STAGE.
-        }
+    if STAGE:KEROSENE = 0 {
+        STAGE.
     }
 }
 
@@ -1022,10 +1020,18 @@ declare global function fairingDeployment {   // controls the deployment of fair
     }
 }
 
+declare global boosterSep to 0.
+declare global function boosterSeperate {
+    if SHIP:PBAN < 200 {
+        STAGE.
+        set boosterSep to 1.
+    }
+}
+
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
-    set TERMINAL:WIDTH to 42.
-    set TERMINAL:HEIGHT to 8.
+    set TERMINAL:WIDTH to 30.
+    set TERMINAL:HEIGHT to 9.
     print "MISSION: " + SHIPNAME.
     print "______________________________".
     print "ALTITUDE [ASL] = " + round(ALT:RADAR) + "M".
@@ -1037,6 +1043,13 @@ declare global function telemetry {   // displays the status of the flight
         print "FAIRING STATUS = DEPLOYED".
     } else {
         print "FAIRING STATUS = ERROR".
+    }
+    if boosterSep = 0 {
+        print "BOOSTERS = BURNING".
+    } else if boosterSep = 1 {
+        print "BOOSTERS = SEPERATED".
+    } else {
+        print "BOOSTERS = ERROR".
     }
     print "______________________________".
 }
