@@ -10,19 +10,19 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.4.1
+// v0.4.2
 //===========================================================================================================
 // start of settings
 
 declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
 
-declare global launchSite to 0.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = LC39A
+declare global launchSite to 0.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
 
 // end of settings
 //===========================================================================================================
-// start of global function and values
+// start of global functions and values
 
-declare global programVersion to 0.4.1.     // current program version (shown in splashscreen)
+declare global programVersion to 0.4.2.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -1116,7 +1116,9 @@ declare global function telemetry {   // displays the status of the flight
     print "______________________________".
 }
 
-// end of global functions
+// end of global functions and values
+//===========================================================================================================
+// start of sequence
 
 splashScreen().
 
