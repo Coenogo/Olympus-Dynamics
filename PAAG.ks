@@ -10,10 +10,10 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.3.6
+// v0.4.0
 //============================================================================
 
-declare global programVersion to 0.3.6.
+declare global programVersion to 0.4.0.
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -970,9 +970,24 @@ declare global function splashScreen {    // creates a screen that displays the 
     wait 2.
 }
 
+declare global secondStage to 0.
 declare global function secondStageDeployment {     // deploys the second stage
-    if STAGE:KEROSENE = 2 {
-        STAGE.
+    
+    if secondstage = 0 {
+        if ALT:RADAR > 145000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
+            STAGE.
+            set secondStage to 1.
+        }
+    }
+    
+    if secondStage = 0 {
+        if STAGE:KEROSENE = 0 {     // deploys the second stage if the first stage runs out of fuel
+            STAGE.
+            if fairingDeploy = 0 {      // deploy fairings if they have somehow not yet deployed
+                STAGE.
+            }
+            set secondStage to 1.
+        }
     }
 }
 
@@ -1020,10 +1035,15 @@ declare global function fairingDeployment {   // controls the deployment of fair
     }
 }
 
+declare global boosterEquipped to 0.    // checks if the rockets is equipped with SRBs
+if SHIP:PBAN > 1000 {
+    set boosterEquipped to 1.
+}
+
 declare global boosterSep to 0.
 declare global function boosterSeperate {
     if boosterSep = 0{
-        if SHIP:PBAN < 0 {
+        if STAGE:PBAN < 50 {
             STAGE.
             set boosterSep to 1.
         }
