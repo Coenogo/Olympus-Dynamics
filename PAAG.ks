@@ -10,19 +10,19 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.4.2
+// v0.4.3
 //===========================================================================================================
 // start of settings
 
-declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
+declare global ascentType to 1.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
 
-declare global launchSite to 0.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
+declare global launchSite to 1.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
 
 // end of settings
 //===========================================================================================================
-// start of global functions and values
+// start of initialization
 
-declare global programVersion to 0.4.2.     // current program version (shown in splashscreen)
+declare global programVersion to 0.4.3.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -1008,15 +1008,15 @@ if launchSite = 0 {      // checks for the position of the launchsite to determi
     set launchSiteAngle to 35.
 } else {
     clearscreen.
-    set TERMINAL:WIDTH to 64.
+    set TERMINAL:WIDTH to 52.
     set TERMINAL:HEIGHT to 1.
-    print "ERROR IN LAUNCH-AZIMUTH CALCULATION: INVALID LAUNCHSITE SELECTED".
+    print "ERROR IN LAUNCH AZIMUTH: INVALID LAUNCHSITE SELECTED".
     wait until false.
 }
 set launchAzimuth to (90+launchSiteAngle).
 
-if ascentType = 0 {
-    declare global function gravTurn {    // Preset ascent guidance
+declare global function gravTurn {
+    if ascentType = 0 {    // preset ascent guidance
         lock steering to navSet.
         if ALT:APOAPSIS > 150000 {
             set navSet to HEADING(launchAzimuth,0).
@@ -1048,17 +1048,23 @@ if ascentType = 0 {
         } else {
             set navSet to HEADING(launchAzimuth,90).
         }
-    }
-} else if ascentType = 1 {
-    // Procedural ascent guidance
-} else {
-    clearscreen.
-    set TERMINAL:WIDTH to 56.
-    set TERMINAL:HEIGHT to 1.
-    print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".
-    wait until false.
-}
 
+    } else if ascentType = 1 {    // procedural ascent guidance
+        lock steering to procNavSet.
+        if ALT:APOAPSIS < 500 {
+            set procNavSet to HEADING(launchAzimuth,90).
+        } else {
+            set launchElevation to (90-ALT:APOAPSIS^2).
+            set procNavSet to (launchAzimuth,launchElevation).
+        }
+    } else {
+        clearscreen.
+        set TERMINAL:WIDTH to 56.
+        set TERMINAL:HEIGHT to 1.
+        print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".
+        wait until false.
+    }
+}
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
     if ALT:RADAR > 50000 {
@@ -1116,9 +1122,9 @@ declare global function telemetry {   // displays the status of the flight
     print "______________________________".
 }
 
-// end of global functions and values
+// end of initialization
 //===========================================================================================================
-// start of sequence
+// start of flight program
 
 splashScreen().
 
