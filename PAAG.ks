@@ -10,10 +10,19 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.4.0
-//============================================================================
+// v0.4.1
+//===========================================================================================================
+// start of settings
 
-declare global programVersion to 0.4.0.
+declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
+
+declare global launchSite to 0.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = LC39A
+
+// end of settings
+//===========================================================================================================
+// start of global function and values
+
+declare global programVersion to 0.4.1.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -991,38 +1000,63 @@ declare global function secondStageDeployment {     // deploys the second stage
     }
 }
 
-declare global function gravTurn {    // gravity-turn sequence
-    lock steering to navSet.
-    if ALT:APOAPSIS > 150000 {
-        set navSet to HEADING(115,0).
-        set throttle to 0.0.
-    } else if ALT:APOAPSIS > 120000 {
-        set navSet to HEADING(115,5).
-    } else if ALT:APOAPSIS > 110000 {
-        set navSet to HEADING(115,10).
-    } else if ALT:APOAPSIS > 100000 {
-        set navSet to HEADING(115,15).
-    } else if ALT:APOAPSIS > 90000 {
-        set navSet to HEADING(115,20).
-    } else if ALT:APOAPSIS > 80000 {
-        set navSet to HEADING(115,25).
-    } else if ALT:APOAPSIS > 70000 {
-        set navSet to HEADING(115,30).
-    } else if ALT:APOAPSIS > 60000 {
-        set navSet to HEADING(115,35).
-    } else if ALT:APOAPSIS > 50000 {
-        set navSet to HEADING(115,40).
-    } else if ALT:APOAPSIS > 40000 {
-        set navSet to HEADING(115,50).
-    } else if ALT:APOAPSIS > 30000 {
-        set navSet to HEADING(115,60).
-    } else if ALT:APOAPSIS > 20000 {
-        set navSet to HEADING(115,70).
-    } else if ALT:APOAPSIS > 10000 {
-        set navSet to HEADING(115,80).
-    } else {
-        set navSet to HEADING(115,90).
+declare global launchAzimuth to 0.
+declare global launchSiteAngle to 0.
+if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
+    set launchSiteAngle to 0.
+} else if launchSite = 1 {
+    set launchSiteAngle to 35.
+} else {
+    clearscreen.
+    set TERMINAL:WIDTH to 64.
+    set TERMINAL:HEIGHT to 1.
+    print "ERROR IN LAUNCH-AZIMUTH CALCULATION: INVALID LAUNCHSITE SELECTED".
+    wait until false.
+}
+set launchAzimuth to (90+launchSiteAngle).
+
+if ascentType = 0 {
+    declare global function gravTurn {    // Preset ascent guidance
+        lock steering to navSet.
+        if ALT:APOAPSIS > 150000 {
+            set navSet to HEADING(launchAzimuth,0).
+            set throttle to 0.0.
+        } else if ALT:APOAPSIS > 120000 {
+            set navSet to HEADING(launchAzimuth,5).
+        } else if ALT:APOAPSIS > 110000 {
+            set navSet to HEADING(launchAzimuth,10).
+        } else if ALT:APOAPSIS > 100000 {
+            set navSet to HEADING(launchAzimuth,15).
+        } else if ALT:APOAPSIS > 90000 {
+            set navSet to HEADING(launchAzimuth,20).
+        } else if ALT:APOAPSIS > 80000 {
+            set navSet to HEADING(launchAzimuth,25).
+        } else if ALT:APOAPSIS > 70000 {
+            set navSet to HEADING(launchAzimuth,30).
+        } else if ALT:APOAPSIS > 60000 {
+            set navSet to HEADING(launchAzimuth,35).
+        } else if ALT:APOAPSIS > 50000 {
+            set navSet to HEADING(launchAzimuth,40).
+        } else if ALT:APOAPSIS > 40000 {
+            set navSet to HEADING(launchAzimuth,50).
+        } else if ALT:APOAPSIS > 30000 {
+            set navSet to HEADING(launchAzimuth,60).
+        } else if ALT:APOAPSIS > 20000 {
+            set navSet to HEADING(launchAzimuth,70).
+        } else if ALT:APOAPSIS > 10000 {
+            set navSet to HEADING(launchAzimuth,80).
+        } else {
+            set navSet to HEADING(launchAzimuth,90).
+        }
     }
+} else if ascentType = 1 {
+    // Procedural ascent guidance
+} else {
+    clearscreen.
+    set TERMINAL:WIDTH to 56.
+    set TERMINAL:HEIGHT to 1.
+    print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".
+    wait until false.
 }
 
 declare global fairingDeploy to 0.  // sets the initial status of fairings
@@ -1100,4 +1134,3 @@ until ALT:PERIAPSIS > 150000 {
     secondStageDeployment().
     boosterSeperate().
 }
-
