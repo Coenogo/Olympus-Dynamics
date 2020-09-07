@@ -1041,7 +1041,7 @@ if SHIP:PBAN > 1000 {
 }
 
 declare global boosterSep to 0.
-declare global function boosterSeperate {
+declare global function boosterSeperate {    // Seperates the boosters when nearing depletion
     if boosterSep = 0{
         if STAGE:PBAN < 50 {
             STAGE.
@@ -1066,12 +1066,18 @@ declare global function telemetry {   // displays the status of the flight
     } else {
         print "FAIRING STATUS = ERROR".
     }
-    if boosterSep = 0 {
-        print "BOOSTERS = BURNING".
-    } else if boosterSep = 1 {
-        print "BOOSTERS = SEPERATED".
+    if boosterEquipped = 1 {
+        if boosterSep = 0 {
+            print "BOOSTERS = BURNING".
+        } else if boosterSep = 1 {
+            print "BOOSTERS = SEPERATED".
+        } else {
+            print "BOOSTERS = ERROR".
+        }
+    } else if boosterEquipped = 0 {
+        print "BOOSTERS = NOT EQUIPPED"
     } else {
-        print "BOOSTERS = ERROR".
+        print "BOOSTERS = ERROR"
     }
     print "______________________________".
 }
@@ -1092,5 +1098,6 @@ until ALT:PERIAPSIS > 150000 {
     telemetry().
     fairingDeployment().
     secondStageDeployment().
+    boosterSeperate().
 }
 
