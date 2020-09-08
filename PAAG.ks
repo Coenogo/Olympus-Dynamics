@@ -10,11 +10,11 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.4.3
+// v0.4.4
 //===========================================================================================================
 // start of settings
 
-declare global ascentType to 1.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
+declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
 
 declare global launchSite to 1.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
 
@@ -22,7 +22,7 @@ declare global launchSite to 1.     // Selects the launchsite: 0 = Unspecified E
 //===========================================================================================================
 // start of initialization
 
-declare global programVersion to 0.4.3.     // current program version (shown in splashscreen)
+declare global programVersion to 0.4.4.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -1004,9 +1004,9 @@ declare global launchAzimuth to 0.
 declare global launchSiteAngle to 0.
 if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
     set launchSiteAngle to 0.
-} else if launchSite = 1 {
+} else if launchSite = 1 {      // launch-site: Cape Canaveral
     set launchSiteAngle to 35.
-} else {
+} else {        // if no launchsite is defined, returns an error and halts the launch
     clearscreen.
     set TERMINAL:WIDTH to 52.
     set TERMINAL:HEIGHT to 1.
@@ -1061,7 +1061,7 @@ declare global function gravTurn {
         clearscreen.
         set TERMINAL:WIDTH to 56.
         set TERMINAL:HEIGHT to 1.
-        print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".
+        print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".    // if no guidance type is selected, returns an error and halts the launch
         wait until false.
     }
 }
@@ -1093,31 +1093,32 @@ declare global function boosterSeperate {    // Seperates the boosters when near
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 30.
-    set TERMINAL:HEIGHT to 9.
+    set TERMINAL:HEIGHT to 10.
     print "MISSION: " + SHIPNAME.
     print "______________________________".
     print "ALTITUDE [ASL] = " + round(ALT:RADAR) + "M".
     print "ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M".
+    print "ALTITUDE [PER] = " + round(ALT:PERIAPSIS) + "M".
     print "VELOCITY       = " + round(AIRSPEED) + "M/S".
     if fairingDeploy = 0 {
         print "FAIRING STATUS = CLOSED".
     } else if fairingDeploy = 1 {
         print "FAIRING STATUS = DEPLOYED".
     } else {
-        print "FAIRING STATUS = ERROR".
+        print "FAIRING STATUS = ERROR".     // if the status of the fairings could not be found, returns an error, but continues the launch
     }
     if boosterEquipped = 1 {
         if boosterSep = 0 {
             print "BOOSTERS = BURNING".
         } else if boosterSep = 1 {
             print "BOOSTERS = SEPERATED".
-        } else {
+        } else {        // if the status of the boosters could not be found, returns an error, but continues the launch
             print "BOOSTERS = ERROR".
         }
     } else if boosterEquipped = 0 {
         print "BOOSTERS = NOT EQUIPPED"
     } else {
-        print "BOOSTERS = ERROR"
+        print "BOOSTERS = ERROR"        // if the presence of the boosters could not be found, returns an error, but continues the launch
     }
     print "______________________________".
 }
@@ -1135,10 +1136,27 @@ wait 2.5.
 AG2.
 STAGE.
 
-until ALT:PERIAPSIS > 150000 {
+until ALT:RADAR > 148000 {      // initial ascent phase
     gravTurn().
     telemetry().
     fairingDeployment().
     secondStageDeployment().
     boosterSeperate().
 }
+
+set navSet to HEADING(launchAzimuth,0).
+set procNavSet to HEADING(launchAzimuth,0).
+
+until ALT:RADAR = ALT:APOAPSIS {
+    telemetry().
+}
+
+set throttle to 1.
+
+until ALT:PERIAPSIS = ALT:APOAPSIS {
+    telemetry().
+}
+
+set throttle to 0.
+
+clearscreen
