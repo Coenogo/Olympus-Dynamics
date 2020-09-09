@@ -1208,4 +1208,4 @@ until ALT:PERIAPSIS = ALT:APOAPSIS {
 set throttle to 0.
 RCS off.
 
-clearscreen
+clearscreen.
