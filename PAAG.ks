@@ -1061,7 +1061,7 @@ declare global function gravTurn {
             set procNavSet to HEADING(launchAzimuth,90).
         } else {
             set launchElevation to (90-ALT:APOAPSIS^2).
-            set procNavSet to (launchAzimuth,launchElevation).
+            set procNavSet to HEADING(launchAzimuth,launchElevation).
         }
     } else {
         clearscreen.
