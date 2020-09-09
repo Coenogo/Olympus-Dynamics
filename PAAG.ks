@@ -10,7 +10,7 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.5.0
+// v0.5.1
 // Made by Coen Voors (Coenogo)
 // EXPERIMENTAL
 //===========================================================================================================
@@ -24,7 +24,7 @@ declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial | 
 //===========================================================================================================
 // start of initialization
 
-declare global programVersion to 0.5.0.     // current program version (shown in splashscreen)
+declare global programVersion to 0.5.1.     // current program version (shown in splashscreen)
 
 set TERMINAL:CHARHEIGHT to 18.
 
