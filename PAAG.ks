@@ -10,10 +10,19 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.3.6
-//============================================================================
+// v0.4.4
+//===========================================================================================================
+// start of settings
 
-declare global programVersion to 0.3.6.
+declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
+
+declare global launchSite to 1.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
+
+// end of settings
+//===========================================================================================================
+// start of initialization
+
+declare global programVersion to 0.4.4.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -970,46 +979,92 @@ declare global function splashScreen {    // creates a screen that displays the 
     wait 2.
 }
 
+declare global secondStage to 0.
 declare global function secondStageDeployment {     // deploys the second stage
-    if STAGE:KEROSENE = 2 {
-        STAGE.
+    
+    if secondstage = 0 {
+        if ALT:RADAR > 145000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
+            STAGE.
+            set secondStage to 1.
+        }
+    }
+    
+    if secondStage = 0 {
+        if STAGE:KEROSENE = 0 {     // deploys the second stage if the first stage runs out of fuel
+            STAGE.
+            if fairingDeploy = 0 {      // deploy fairings if they have somehow not yet deployed
+                STAGE.
+            }
+            set secondStage to 1.
+        }
     }
 }
 
-declare global function gravTurn {    // gravity-turn sequence
-    lock steering to navSet.
-    if ALT:APOAPSIS > 150000 {
-        set navSet to HEADING(115,0).
-        set throttle to 0.0.
-    } else if ALT:APOAPSIS > 120000 {
-        set navSet to HEADING(115,5).
-    } else if ALT:APOAPSIS > 110000 {
-        set navSet to HEADING(115,10).
-    } else if ALT:APOAPSIS > 100000 {
-        set navSet to HEADING(115,15).
-    } else if ALT:APOAPSIS > 90000 {
-        set navSet to HEADING(115,20).
-    } else if ALT:APOAPSIS > 80000 {
-        set navSet to HEADING(115,25).
-    } else if ALT:APOAPSIS > 70000 {
-        set navSet to HEADING(115,30).
-    } else if ALT:APOAPSIS > 60000 {
-        set navSet to HEADING(115,35).
-    } else if ALT:APOAPSIS > 50000 {
-        set navSet to HEADING(115,40).
-    } else if ALT:APOAPSIS > 40000 {
-        set navSet to HEADING(115,50).
-    } else if ALT:APOAPSIS > 30000 {
-        set navSet to HEADING(115,60).
-    } else if ALT:APOAPSIS > 20000 {
-        set navSet to HEADING(115,70).
-    } else if ALT:APOAPSIS > 10000 {
-        set navSet to HEADING(115,80).
+declare global launchAzimuth to 0.
+declare global launchSiteAngle to 0.
+if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
+    set launchSiteAngle to 0.
+} else if launchSite = 1 {      // launch-site: Cape Canaveral
+    set launchSiteAngle to 35.
+} else {        // if no launchsite is defined, returns an error and halts the launch
+    clearscreen.
+    set TERMINAL:WIDTH to 52.
+    set TERMINAL:HEIGHT to 1.
+    print "ERROR IN LAUNCH AZIMUTH: INVALID LAUNCHSITE SELECTED".
+    wait until false.
+}
+set launchAzimuth to (90+launchSiteAngle).
+
+declare global function gravTurn {
+    if ascentType = 0 {    // preset ascent guidance
+        lock steering to navSet.
+        if ALT:APOAPSIS > 150000 {
+            set navSet to HEADING(launchAzimuth,0).
+            set throttle to 0.0.
+        } else if ALT:APOAPSIS > 120000 {
+            set navSet to HEADING(launchAzimuth,5).
+        } else if ALT:APOAPSIS > 110000 {
+            set navSet to HEADING(launchAzimuth,10).
+        } else if ALT:APOAPSIS > 100000 {
+            set navSet to HEADING(launchAzimuth,15).
+        } else if ALT:APOAPSIS > 90000 {
+            set navSet to HEADING(launchAzimuth,20).
+        } else if ALT:APOAPSIS > 80000 {
+            set navSet to HEADING(launchAzimuth,25).
+        } else if ALT:APOAPSIS > 70000 {
+            set navSet to HEADING(launchAzimuth,30).
+        } else if ALT:APOAPSIS > 60000 {
+            set navSet to HEADING(launchAzimuth,35).
+        } else if ALT:APOAPSIS > 50000 {
+            set navSet to HEADING(launchAzimuth,40).
+        } else if ALT:APOAPSIS > 40000 {
+            set navSet to HEADING(launchAzimuth,50).
+        } else if ALT:APOAPSIS > 30000 {
+            set navSet to HEADING(launchAzimuth,60).
+        } else if ALT:APOAPSIS > 20000 {
+            set navSet to HEADING(launchAzimuth,70).
+        } else if ALT:APOAPSIS > 10000 {
+            set navSet to HEADING(launchAzimuth,80).
+        } else {
+            set navSet to HEADING(launchAzimuth,90).
+        }
+
+    } else if ascentType = 1 {    // procedural ascent guidance
+        lock steering to procNavSet.
+        if ALT:APOAPSIS < 500 {
+            set procNavSet to HEADING(launchAzimuth,90).
+        } else {
+            set launchElevation to (90-ALT:APOAPSIS^2).
+            set procNavSet to (launchAzimuth,launchElevation).
+        }
     } else {
-        set navSet to HEADING(115,90).
+        clearscreen.
+        set TERMINAL:WIDTH to 56.
+        set TERMINAL:HEIGHT to 1.
+        print "ERROR IN ASCENT GUIDANCE: INVALID GUIDANCE TYPE SELECTED".    // if no guidance type is selected, returns an error and halts the launch
+        wait until false.
     }
 }
-
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
     if ALT:RADAR > 70000 {
@@ -1020,10 +1075,15 @@ declare global function fairingDeployment {   // controls the deployment of fair
     }
 }
 
+declare global boosterEquipped to 0.    // checks if the rockets is equipped with SRBs
+if SHIP:PBAN > 1000 {
+    set boosterEquipped to 1.
+}
+
 declare global boosterSep to 0.
-declare global function boosterSeperate {
+declare global function boosterSeperate {    // Seperates the boosters when nearing depletion
     if boosterSep = 0{
-        if SHIP:PBAN < 0 {
+        if STAGE:PBAN < 50 {
             STAGE.
             set boosterSep to 1.
         }
@@ -1033,30 +1093,39 @@ declare global function boosterSeperate {
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 30.
-    set TERMINAL:HEIGHT to 9.
+    set TERMINAL:HEIGHT to 10.
     print "MISSION: " + SHIPNAME.
     print "______________________________".
     print "ALTITUDE [ASL] = " + round(ALT:RADAR) + "M".
     print "ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M".
+    print "ALTITUDE [PER] = " + round(ALT:PERIAPSIS) + "M".
     print "VELOCITY       = " + round(AIRSPEED) + "M/S".
     if fairingDeploy = 0 {
         print "FAIRING STATUS = CLOSED".
     } else if fairingDeploy = 1 {
         print "FAIRING STATUS = DEPLOYED".
     } else {
-        print "FAIRING STATUS = ERROR".
+        print "FAIRING STATUS = ERROR".     // if the status of the fairings could not be found, returns an error, but continues the launch
     }
-    if boosterSep = 0 {
-        print "BOOSTERS = BURNING".
-    } else if boosterSep = 1 {
-        print "BOOSTERS = SEPERATED".
+    if boosterEquipped = 1 {
+        if boosterSep = 0 {
+            print "BOOSTERS = BURNING".
+        } else if boosterSep = 1 {
+            print "BOOSTERS = SEPERATED".
+        } else {        // if the status of the boosters could not be found, returns an error, but continues the launch
+            print "BOOSTERS = ERROR".
+        }
+    } else if boosterEquipped = 0 {
+        print "BOOSTERS = NOT EQUIPPED"
     } else {
-        print "BOOSTERS = ERROR".
+        print "BOOSTERS = ERROR"        // if the presence of the boosters could not be found, returns an error, but continues the launch
     }
     print "______________________________".
 }
 
-// end of global functions
+// end of initialization
+//===========================================================================================================
+// start of flight program
 
 splashScreen().
 
@@ -1067,10 +1136,27 @@ wait 2.5.
 AG2.
 STAGE.
 
-until ALT:PERIAPSIS > 150000 {
+until ALT:RADAR > 148000 {      // initial ascent phase
     gravTurn().
     telemetry().
     fairingDeployment().
     secondStageDeployment().
+    boosterSeperate().
 }
 
+set navSet to HEADING(launchAzimuth,0).
+set procNavSet to HEADING(launchAzimuth,0).
+
+until ALT:RADAR = ALT:APOAPSIS {
+    telemetry().
+}
+
+set throttle to 1.
+
+until ALT:PERIAPSIS = ALT:APOAPSIS {
+    telemetry().
+}
+
+set throttle to 0.
+
+clearscreen
