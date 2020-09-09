@@ -26,10 +26,12 @@ declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial | 
 
 declare global programVersion to 0.5.0.     // current program version (shown in splashscreen)
 
+set TERMINAL:CHARHEIGHT to 18.
+
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
     set TERMINAL:WIDTH to 63.
-    set TERMINAL:HEIGHT to 13.
+    set TERMINAL:HEIGHT to 14.
     set V0 to getvoice(0). // Gets a reference to the zero-th voice in the chip.
     V0:PLAY( NOTE(400, 0.5) ).  // Starts a note at 400 Hz for 0.5 seconds.
     clearscreen.
@@ -985,21 +987,23 @@ declare global secondStage to 0.
 declare global function secondStageDeployment {     // deploys the second stage
     
     if secondstage = 0 {
-        if ALT:RADAR > 145000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
-            STAGE.
-            set secondStage to 1.
-            RCS on.
-        }
-    }
-    
-    if secondStage = 0 {
-        if STAGE:KEROSENE = 0 {     // deploys the second stage if the first stage runs out of fuel
-            STAGE.
-            if fairingDeploy = 0 {      // deploy fairings if they have somehow not yet deployed
+        if ALT:RADAR > 100 {
+            if ALT:APOAPSIS > 150000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
                 STAGE.
+                set secondStage to 1.
+                RCS on.
             }
-            set secondStage to 1.
-            RCS on.
+        }
+        
+        if secondStage = 0 {
+            if STAGE:Kerosene < 20 {     // deploys the second stage if the first stage runs out of fuel
+                STAGE.
+                if fairingDeploy = 0 {      // deploy fairings if they have somehow not yet deployed
+                    STAGE.
+                }
+                set secondStage to 1.
+                RCS on.
+            }
         }
     }
 }
@@ -1010,7 +1014,7 @@ declare global function setLaunchSiteAngle {
     if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
         set launchSiteAngle to 0.
     } else if launchSite = 1 {      // launch-site: Cape Canaveral
-        set launchSiteAngle to 35.
+        set launchSiteAngle to 30.
     } else {        // if no launchsite is defined, returns an error and halts the launch
         clearscreen.
         set TERMINAL:WIDTH to 52.
@@ -1028,28 +1032,28 @@ declare global function gravTurn {
             set navSet to HEADING(launchAzimuth,0).
             set throttle to 0.0.
         } else if ALT:APOAPSIS > 120000 {
-            set navSet to HEADING(launchAzimuth,5).
-        } else if ALT:APOAPSIS > 110000 {
             set navSet to HEADING(launchAzimuth,10).
-        } else if ALT:APOAPSIS > 100000 {
+        } else if ALT:APOAPSIS > 110000 {
             set navSet to HEADING(launchAzimuth,15).
+        } else if ALT:APOAPSIS > 100000 {
+            set navSet to HEADING(launchAzimuth,20).
         } else if ALT:APOAPSIS > 90000 {
             set navSet to HEADING(launchAzimuth,20).
-        } else if ALT:APOAPSIS > 80000 {
-            set navSet to HEADING(launchAzimuth,25).
         } else if ALT:APOAPSIS > 70000 {
-            set navSet to HEADING(launchAzimuth,30).
+            set navSet to HEADING(launchAzimuth,25).
         } else if ALT:APOAPSIS > 60000 {
-            set navSet to HEADING(launchAzimuth,35).
+            set navSet to HEADING(launchAzimuth,30).
         } else if ALT:APOAPSIS > 50000 {
-            set navSet to HEADING(launchAzimuth,40).
+            set navSet to HEADING(launchAzimuth,35).
         } else if ALT:APOAPSIS > 40000 {
-            set navSet to HEADING(launchAzimuth,50).
+            set navSet to HEADING(launchAzimuth,40).
         } else if ALT:APOAPSIS > 30000 {
-            set navSet to HEADING(launchAzimuth,60).
+            set navSet to HEADING(launchAzimuth,50).
         } else if ALT:APOAPSIS > 20000 {
-            set navSet to HEADING(launchAzimuth,70).
+            set navSet to HEADING(launchAzimuth,60).
         } else if ALT:APOAPSIS > 10000 {
+            set navSet to HEADING(launchAzimuth,70).
+        } else if ALT:APOAPSIS > 5000 {
             set navSet to HEADING(launchAzimuth,80).
         } else {
             set navSet to HEADING(launchAzimuth,90).
@@ -1073,7 +1077,7 @@ declare global function gravTurn {
 }
 declare global fairingDeploy to 0.  // sets the initial status of fairings
 declare global function fairingDeployment {   // controls the deployment of fairings
-    if ALT:RADAR > 70000 {
+    if ALT:RADAR > 55000 {
         if fairingDeploy = 0 {
             STAGE.
             set fairingDeploy to 1.
@@ -1099,7 +1103,7 @@ declare global function boosterSeperate {    // Seperates the boosters when near
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 30.
-    set TERMINAL:HEIGHT to 12.
+    set TERMINAL:HEIGHT to 13.
     print "MISSION: " + SHIPNAME.
     print "______________________________".
     if ascentType = 0 {
@@ -1120,6 +1124,13 @@ declare global function telemetry {   // displays the status of the flight
     print "ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M".
     print "ALTITUDE [PER] = " + round(ALT:PERIAPSIS) + "M".
     print "VELOCITY       = " + round(AIRSPEED) + "M/S".
+    if secondStage = 0 {
+        print "CURRENT STAGE = 1ST".
+    } else if secondStage = 1 {
+        print "CURRENT STAGE = 2ND".
+    } else {
+        print "CURRENT STAGE = ERROR".
+    }
     if fairingDeploy = 0 {
         print "FAIRING STATUS = CLOSED".
     } else if fairingDeploy = 1 {
@@ -1172,7 +1183,6 @@ TERMINAL:INPUT:CLEAR().
 set ascentType to TERMINAL:INPUT:GETCHAR().
 
 telemetry().
-gravTurn().
 
 lock throttle to 1.
 AG1.
@@ -1181,7 +1191,7 @@ wait 2.5.
 AG2.
 STAGE.
 
-until ALT:RADAR > 148000 {      // initial ascent phase
+until ALT:RADAR > 130000 {      // initial ascent phase
     gravTurn().
     telemetry().
     fairingDeployment().
@@ -1192,16 +1202,12 @@ until ALT:RADAR > 148000 {      // initial ascent phase
 set navSet to HEADING(launchAzimuth,0).
 set procNavSet to HEADING(launchAzimuth,0).
 
-until ALT:RADAR = ALT:APOAPSIS {
-    telemetry().
-}
-
 set SHIP:CONTROL:FORE to 1.
 set throttle to 1.
 wait 1.
 set SHIP:CONTROL:FORE to 0.
 
-until ALT:PERIAPSIS = ALT:APOAPSIS {
+until ALT:PERIAPSIS = 150000 {
     telemetry().
 }
 
