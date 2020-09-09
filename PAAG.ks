@@ -12,6 +12,7 @@
 // Polaris Automated Ascent Guidance
 // v0.5.0
 // Made by Coen Voors (Coenogo)
+// EXPERIMENTAL
 //===========================================================================================================
 // start of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
 
