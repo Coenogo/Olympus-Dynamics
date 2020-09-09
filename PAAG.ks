@@ -1136,9 +1136,9 @@ declare global function telemetry {   // displays the status of the flight
             print "BOOSTERS = ERROR".
         }
     } else if boosterEquipped = 0 {
-        print "BOOSTERS = NOT EQUIPPED"
+        print "BOOSTERS = NOT EQUIPPED".
     } else {
-        print "BOOSTERS = ERROR"        // if the presence of the boosters could not be found, returns an error, but continues the launch
+        print "BOOSTERS = ERROR" .       // if the presence of the boosters could not be found, returns an error, but continues the launch
     }
     print "______________________________".
 }
