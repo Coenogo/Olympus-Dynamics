@@ -10,19 +10,20 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.4.4
+// v0.5.0
+// Made by Coen Voors (Coenogo)
 //===========================================================================================================
-// start of settings
+// start of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
 
 declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
 
-declare global launchSite to 1.     // Selects the launchsite: 0 = Unspecified Equatorial | 1 = Cape Canaveral
+declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial | 1 = Cape Canaveral
 
-// end of settings
+// end of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
 //===========================================================================================================
 // start of initialization
 
-declare global programVersion to 0.4.4.     // current program version (shown in splashscreen)
+declare global programVersion to 0.5.0.     // current program version (shown in splashscreen)
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
@@ -986,6 +987,7 @@ declare global function secondStageDeployment {     // deploys the second stage
         if ALT:RADAR > 145000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
             STAGE.
             set secondStage to 1.
+            RCS on.
         }
     }
     
@@ -996,27 +998,30 @@ declare global function secondStageDeployment {     // deploys the second stage
                 STAGE.
             }
             set secondStage to 1.
+            RCS on.
         }
     }
 }
 
 declare global launchAzimuth to 0.
 declare global launchSiteAngle to 0.
-if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
-    set launchSiteAngle to 0.
-} else if launchSite = 1 {      // launch-site: Cape Canaveral
-    set launchSiteAngle to 35.
-} else {        // if no launchsite is defined, returns an error and halts the launch
-    clearscreen.
-    set TERMINAL:WIDTH to 52.
-    set TERMINAL:HEIGHT to 1.
-    print "ERROR IN LAUNCH AZIMUTH: INVALID LAUNCHSITE SELECTED".
-    wait until false.
+declare global function setLaunchSiteAngle {
+    if launchSite = 0 {      // checks for the position of the launchsite to determine launch azimuth
+        set launchSiteAngle to 0.
+    } else if launchSite = 1 {      // launch-site: Cape Canaveral
+        set launchSiteAngle to 35.
+    } else {        // if no launchsite is defined, returns an error and halts the launch
+        clearscreen.
+        set TERMINAL:WIDTH to 52.
+        set TERMINAL:HEIGHT to 1.
+        print "ERROR IN LAUNCH AZIMUTH: INVALID LAUNCHSITE SELECTED".
+        wait until false.
+    }
+    set launchAzimuth to (90+launchSiteAngle).
 }
-set launchAzimuth to (90+launchSiteAngle).
 
 declare global function gravTurn {
-    if ascentType = 0 {    // preset ascent guidance
+    if ascentType = 0 {    // preset (150KM) ascent guidance
         lock steering to navSet.
         if ALT:APOAPSIS > 150000 {
             set navSet to HEADING(launchAzimuth,0).
@@ -1093,9 +1098,23 @@ declare global function boosterSeperate {    // Seperates the boosters when near
 declare global function telemetry {   // displays the status of the flight
     clearscreen.
     set TERMINAL:WIDTH to 30.
-    set TERMINAL:HEIGHT to 10.
+    set TERMINAL:HEIGHT to 12.
     print "MISSION: " + SHIPNAME.
     print "______________________________".
+    if ascentType = 0 {
+        print "GUIDANCE MODE = PRESET".
+    } else if ascentType = 1 {
+        print "GUIDANCE MODE = PROCEDURAL".
+    } else {
+        print "GUIDANCE MODE = ERROR".
+    }
+    if launchSite = 0 {
+        print "LAUNCH SITE = EQUATORIAL".
+    } else if launchSite = 1 {
+        print "LAUNCH SITE = CAPE CANAVERAL".
+    } else {
+        PRINT "LAUNCH SITE = ERROR".
+    }
     print "ALTITUDE [ASL] = " + round(ALT:RADAR) + "M".
     print "ALTITUDE [APO] = " + round(ALT:APOAPSIS) + "M".
     print "ALTITUDE [PER] = " + round(ALT:PERIAPSIS) + "M".
@@ -1129,6 +1148,31 @@ declare global function telemetry {   // displays the status of the flight
 
 splashScreen().
 
+clearscreen.
+set TERMINAL:WIDTH to 29.
+set TERMINAL:HEIGHT to 5.
+print "PLEASE SELECT A LAUNCHSITE".
+print "_____________________________".
+print "0 = DEFAULT (EQUATORIAL)".
+print "1 = CAPE CANAVERAL".
+TERMINAL:INPUT:CLEAR().
+set launchSite to TERMINAL:INPUT:GETCHAR().
+
+setLaunchSiteAngle().
+
+clearscreen.
+set TERMINAL:WIDTH to 29.
+set TERMINAL:HEIGHT to 5.
+print "PLEASE SELECT A GUIDANCE TYPE".
+print "_____________________________".
+print "0 = PRESET (150KM)".
+print "1 = PROCEDURAL".
+TERMINAL:INPUT:CLEAR().
+set ascentType to TERMINAL:INPUT:GETCHAR().
+
+telemetry().
+gravTurn().
+
 lock throttle to 1.
 AG1.
 STAGE.
@@ -1151,12 +1195,16 @@ until ALT:RADAR = ALT:APOAPSIS {
     telemetry().
 }
 
+set SHIP:CONTROL:FORE to 1.
 set throttle to 1.
+wait 1.
+set SHIP:CONTROL:FORE to 0.
 
 until ALT:PERIAPSIS = ALT:APOAPSIS {
     telemetry().
 }
 
 set throttle to 0.
+RCS off.
 
 clearscreen
