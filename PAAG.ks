@@ -10,7 +10,7 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.5.1
+// v0.5.2
 // Made by Coen Voors (Coenogo)
 // EXPERIMENTAL
 //===========================================================================================================
@@ -24,14 +24,14 @@ declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial | 
 //===========================================================================================================
 // start of initialization
 
-declare global programVersion to 0.5.1.     // current program version (shown in splashscreen)
+declare global programVersion to 0.5.2.     // current program version (shown in splashscreen)
 
 set TERMINAL:CHARHEIGHT to 18.
 
 declare global function splashScreen {    // creates a screen that displays the Olympus Dynamics logo
     clearscreen.
     set TERMINAL:WIDTH to 63.
-    set TERMINAL:HEIGHT to 14.
+    set TERMINAL:HEIGHT to 15.
     set V0 to getvoice(0). // Gets a reference to the zero-th voice in the chip.
     V0:PLAY( NOTE(400, 0.5) ).  // Starts a note at 400 Hz for 0.5 seconds.
     clearscreen.
@@ -47,6 +47,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -62,6 +63,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -77,6 +79,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -92,6 +95,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -107,6 +111,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -122,6 +127,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -137,6 +143,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -152,6 +159,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -167,6 +175,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -182,6 +191,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     V0:PLAY( NOTE(500, 0.5) ).  // Starts a note at 500 Hz for 0.5 seconds.
@@ -198,6 +208,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -213,6 +224,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -228,6 +240,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -243,6 +256,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -258,6 +272,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -273,6 +288,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -288,6 +304,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -303,6 +320,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -318,6 +336,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -333,6 +352,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     V0:PLAY( NOTE(600, 1) ).  // Starts a note at 600 Hz for 1 second.
@@ -349,6 +369,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -364,6 +385,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -379,6 +401,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -394,6 +417,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -409,6 +433,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -424,6 +449,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -439,6 +465,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -454,6 +481,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -469,6 +497,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -484,6 +513,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -499,6 +529,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -514,6 +545,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -529,6 +561,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -544,6 +577,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -559,6 +593,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -574,6 +609,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -589,6 +625,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -604,6 +641,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -619,6 +657,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -634,6 +673,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -649,6 +689,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -664,6 +705,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -679,6 +721,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -694,6 +737,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -709,6 +753,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -724,6 +769,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -739,6 +785,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -754,6 +801,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -769,6 +817,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -784,6 +833,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -799,6 +849,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -814,6 +865,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -829,6 +881,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -844,6 +897,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.05.
     clearscreen.
@@ -859,6 +913,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 1.0.
     clearscreen.
@@ -874,6 +929,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -889,6 +945,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -904,6 +961,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -919,6 +977,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -934,6 +993,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -949,6 +1009,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -964,6 +1025,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 0.1.
     clearscreen.
@@ -979,6 +1041,7 @@ declare global function splashScreen {    // creates a screen that displays the 
     print " o _________________________________________________________ o".
     print "Polaris Automated Ascent Guidance".
     print "v" + programVersion.
+    print "Made by Coen Voors (Coenogo)".
     print "===============================================================".
     wait 2.
 }
@@ -1169,6 +1232,8 @@ print "0 = DEFAULT (EQUATORIAL)".
 print "1 = CAPE CANAVERAL".
 TERMINAL:INPUT:CLEAR().
 set launchSite to TERMINAL:INPUT:GETCHAR().
+set V1 to getvoice(0).
+V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
 
 setLaunchSiteAngle().
 
@@ -1181,6 +1246,7 @@ print "0 = PRESET (150KM)".
 print "1 = PROCEDURAL".
 TERMINAL:INPUT:CLEAR().
 set ascentType to TERMINAL:INPUT:GETCHAR().
+V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
 
 telemetry().
 
