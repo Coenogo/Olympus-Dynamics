@@ -10,21 +10,22 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.5.2
+// v0.5.3
+// NOT HUMAN-RATED
 // Made by Coen Voors (Coenogo)
 // EXPERIMENTAL
 //===========================================================================================================
 // start of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
 
-declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset | 1 = procedural
+declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset (Default) | 1 = procedural
 
-declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial | 1 = Cape Canaveral
+declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial (Default) | 1 = Cape Canaveral
 
 // end of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
 //===========================================================================================================
-// start of initialization
+// start of global functions, variables and values
 
-declare global programVersion to 0.5.2.     // current program version (shown in splashscreen)
+declare global programVersion to 0.5.3.     // current program version (shown in splashscreen)
 
 set TERMINAL:CHARHEIGHT to 18.
 
@@ -1078,13 +1079,13 @@ declare global function setLaunchSiteAngle {
         set launchSiteAngle to 0.
     } else if launchSite = 1 {      // launch-site: Cape Canaveral
         set launchSiteAngle to 30.
-    } else {        // if no launchsite is defined, returns an error and halts the launch
-        clearscreen.
-        set TERMINAL:WIDTH to 52.
-        set TERMINAL:HEIGHT to 1.
-        print "ERROR IN LAUNCH AZIMUTH: INVALID LAUNCHSITE SELECTED".
-        wait until false.
-    }
+    } else if launchSite = 2 {
+        set launchSiteAngle to 90.
+    } else if launchSite = 3 {
+        set launchSiteAngle to 270.
+    } else if launchSite = 4 {
+        set launchSiteAngle to ???. // SET THIS!!!
+    } 
     set launchAzimuth to (90+launchSiteAngle).
 }
 
@@ -1217,36 +1218,115 @@ declare global function telemetry {   // displays the status of the flight
     print "______________________________".
 }
 
-// end of initialization
+// end of global functions, variables and values
 //===========================================================================================================
 // start of flight program
 
 splashScreen().
 
-clearscreen.
-set TERMINAL:WIDTH to 29.
-set TERMINAL:HEIGHT to 5.
-print "PLEASE SELECT A LAUNCHSITE".
-print "_____________________________".
-print "0 = DEFAULT (EQUATORIAL)".
-print "1 = CAPE CANAVERAL".
-TERMINAL:INPUT:CLEAR().
-set launchSite to TERMINAL:INPUT:GETCHAR().
-set V1 to getvoice(0).
-V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+selectLaunchSite().
 
-setLaunchSiteAngle().
+declare global function selectLaunchSite {
+    clearscreen.
+    set TERMINAL:WIDTH to 34.
+    set TERMINAL:HEIGHT to 8.
+    set V1 to getvoice(0).
+    print "PLEASE SELECT A LAUNCHSITE/PROFILE".
+    print "__________________________________".
+    print "0 = DEFAULT (EQUATORIAL) | 000 DEG".
+    print "1 = CAPE CANAVERAL       | 030 DEG".
+    print "2 = POLAR ORBIT (SOUTH)  | 090 DEG".
+    print "3 = POLAR ORBIT (NORTH)  | 270 DEG".
+    print "4 = BAIKONOUR COSMODROME | ??? DEG".
+    TERMINAL:INPUT:CLEAR().
+    set launchSite to TERMINAL:INPUT:GETCHAR().
 
-clearscreen.
-set TERMINAL:WIDTH to 29.
-set TERMINAL:HEIGHT to 5.
-print "PLEASE SELECT A GUIDANCE TYPE".
-print "_____________________________".
-print "0 = PRESET (150KM)".
-print "1 = PROCEDURAL".
-TERMINAL:INPUT:CLEAR().
-set ascentType to TERMINAL:INPUT:GETCHAR().
-V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+    setLaunchSiteAngle().
+
+    if launchSite = 0 {
+        clearscreen.
+        set TERMINAL:WIDTH to 26.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "EQUATORIAL LAUNCH SELECTED".
+        wait 2.
+        selectGuidanceType().
+    } else if launchSite = 1 {
+        clearscreen.
+        set TERMINAL:WIDTH to 23.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "CAPE CANAVERAL SELECTED".
+        wait 2.
+        selectGuidanceType().
+    } else if launchSite = 2 {
+        clearscreen.
+        set TERMINAL:WIDTH to 28.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "POLAR ORBIT (SOUTH) SELECTED".
+        wait 2.
+        selectGuidanceType().
+    } else if launchSite = 3 {
+        clearscreen.
+        set TERMINAL:WIDTH to 28.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "POLAR ORBIT (NORTH) SELECTED".
+        wait 2.
+        selectGuidanceType().
+    } else if launchSite = 4 {
+        clearscreen.
+        set TERMINAL:WIDTH to 29.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "BAIKONOUR COSMODROME SELECTED".
+        wait 2.
+        selectGuidanceType().
+    } else {
+        clearscreen.
+        set TERMINAL:WIDTH to 35.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(400, 0.3) ).  // Starts a note at 400 Hz for 0.3 seconds.
+        print "INVALID SELECTION, PLEASE TRY AGAIN".
+        wait 2.
+        selectLaunchSite().
+    }
+}
+
+declare global function selectGuidanceType {
+    clearscreen.
+    set TERMINAL:WIDTH to 29.
+    set TERMINAL:HEIGHT to 8.
+    V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+    print "PLEASE SELECT A GUIDANCE TYPE".
+    print "_____________________________".
+    print "0 = PRESET (150KM)".
+    print "1 = PROCEDURAL".
+    TERMINAL:INPUT:CLEAR().
+    set ascentType to TERMINAL:INPUT:GETCHAR().
+
+    if ascentType = 0 {
+        clearscreen.
+        set TERMINAL:WIDTH to 24.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "PRESET GUIDANCE SELECTED".
+    } else if ascentType = 1 {
+        clearscreen.
+        set TERMINAL:WIDTH to 28.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+        print "PROCEDURAL GUIDANCE SELECTED".
+    } else {
+        clearscreen.
+        set TERMINAL:WIDTH to 35.
+        set TERMINAL:HEIGHT to 1.
+        V1:PLAY( NOTE(400, 0.3) ).  // Starts a note at 400 Hz for 0.3 seconds.
+        print "INVALID SELECTION, PLEASE TRY AGAIN".
+        selectGuidanceType().
+    }
+}
 
 telemetry().
 
