@@ -10,7 +10,7 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.5.3
+// v0.6.0
 // NOT HUMAN-RATED
 // Made by Coen Voors (Coenogo)
 // EXPERIMENTAL
@@ -25,7 +25,7 @@ declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial (D
 //===========================================================================================================
 // start of global functions, variables and values
 
-declare global programVersion to 0.5.3.     // current program version (shown in splashscreen)
+declare global programVersion to 0.6.0.     // current program version (shown in splashscreen)
 
 set TERMINAL:CHARHEIGHT to 18.
 
@@ -1052,7 +1052,7 @@ declare global function secondStageDeployment {     // deploys the second stage
     
     if secondstage = 0 {
         if ALT:RADAR > 100 {
-            if ALT:APOAPSIS > 150000 {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
+            if ALT:APOAPSIS > altTarget {     // deploys the second stage if the rocket reaches a certain altitude with fuel left in the first stage
                 STAGE.
                 set secondStage to 1.
                 RCS on.
@@ -1090,9 +1090,9 @@ declare global function setLaunchSiteAngle {
 }
 
 declare global function gravTurn {
-    if ascentType = 0 {    // preset (150KM) ascent guidance
+    if ascentType = 0 {    // preset ascent guidance
         lock steering to navSet.
-        if ALT:APOAPSIS > 150000 {
+        if ALT:APOAPSIS > altTarget {
             set navSet to HEADING(launchAzimuth,0).
             set throttle to 0.0.
         } else if ALT:APOAPSIS > 120000 {
@@ -1301,7 +1301,7 @@ declare global function selectGuidanceType {
     V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
     print "PLEASE SELECT A GUIDANCE TYPE".
     print "_____________________________".
-    print "0 = PRESET (150KM)".
+    print "0 = PRESET".
     print "1 = PROCEDURAL".
     TERMINAL:INPUT:CLEAR().
     set ascentType to TERMINAL:INPUT:GETCHAR().
@@ -1312,20 +1312,35 @@ declare global function selectGuidanceType {
         set TERMINAL:HEIGHT to 1.
         V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
         print "PRESET GUIDANCE SELECTED".
+        wait 2.
+        setAltTarget().
     } else if ascentType = 1 {
         clearscreen.
         set TERMINAL:WIDTH to 28.
         set TERMINAL:HEIGHT to 1.
         V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
         print "PROCEDURAL GUIDANCE SELECTED".
+        setAltTarget().
     } else {
         clearscreen.
         set TERMINAL:WIDTH to 35.
         set TERMINAL:HEIGHT to 1.
         V1:PLAY( NOTE(400, 0.3) ).  // Starts a note at 400 Hz for 0.3 seconds.
         print "INVALID SELECTION, PLEASE TRY AGAIN".
+        wait 2.
         selectGuidanceType().
     }
+}
+
+declare global function setAltTarget {
+    clearscreen.
+    set TERMINAL:WIDTH to 29.
+    set TERMINAL:HEIGHT to 8.
+    V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
+    print "PLEASE SET A DESIRED ORBITAL ALTITUDE IN METERS".
+    print "_______________________________________________".
+    TERMINAL:INPUT:CLEAR().
+    set ascentType to TERMINAL:INPUT:GETCHAR().
 }
 
 telemetry().
@@ -1337,7 +1352,7 @@ wait 2.5.
 AG2.
 STAGE.
 
-until ALT:RADAR > 130000 {      // initial ascent phase
+until ALT:RADAR > (altTarget-20000) {      // initial ascent phase
     gravTurn().
     telemetry().
     fairingDeployment().
@@ -1353,7 +1368,7 @@ set throttle to 1.
 wait 1.
 set SHIP:CONTROL:FORE to 0.
 
-until ALT:PERIAPSIS = 150000 {
+until ALT:PERIAPSIS = altTarget {
     telemetry().
 }
 
