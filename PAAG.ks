@@ -10,22 +10,14 @@
 //  o _________________________________________________________ o
 //
 // Polaris Automated Ascent Guidance
-// v0.6.0
+// v0.7.0
 // NOT HUMAN-RATED
 // Made by Coen Voors (Coenogo)
 // EXPERIMENTAL
-//===========================================================================================================
-// start of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
-
-declare global ascentType to 0.     // Selects the type of ascent guidance: 0 = preset (Default) | 1 = procedural
-
-declare global launchSite to 0.     // Selects the launchsite: 0 = Equatorial (Default) | 1 = Cape Canaveral
-
-// end of settings (OBSOLETE, USE BUILT-IN SETTINGS!)
-//===========================================================================================================
+//================================================
 // start of global functions, variables and values
 
-declare global programVersion to 0.6.0.     // current program version (shown in splashscreen)
+declare global programVersion to 0.7.0.     // current program version (shown in splashscreen)
 
 set TERMINAL:CHARHEIGHT to 18.
 
@@ -1083,8 +1075,6 @@ declare global function setLaunchSiteAngle {
         set launchSiteAngle to 90.
     } else if launchSite = 3 {
         set launchSiteAngle to 270.
-    } else if launchSite = 4 {
-        set launchSiteAngle to ???. // SET THIS!!!
     } 
     set launchAzimuth to (90+launchSiteAngle).
 }
@@ -1219,7 +1209,7 @@ declare global function telemetry {   // displays the status of the flight
 }
 
 // end of global functions, variables and values
-//===========================================================================================================
+//================================================
 // start of flight program
 
 splashScreen().
@@ -1237,7 +1227,6 @@ declare global function selectLaunchSite {
     print "1 = CAPE CANAVERAL       | 030 DEG".
     print "2 = POLAR ORBIT (SOUTH)  | 090 DEG".
     print "3 = POLAR ORBIT (NORTH)  | 270 DEG".
-    print "4 = BAIKONOUR COSMODROME | ??? DEG".
     TERMINAL:INPUT:CLEAR().
     set launchSite to TERMINAL:INPUT:GETCHAR().
 
@@ -1275,14 +1264,6 @@ declare global function selectLaunchSite {
         print "POLAR ORBIT (NORTH) SELECTED".
         wait 2.
         selectGuidanceType().
-    } else if launchSite = 4 {
-        clearscreen.
-        set TERMINAL:WIDTH to 29.
-        set TERMINAL:HEIGHT to 1.
-        V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
-        print "BAIKONOUR COSMODROME SELECTED".
-        wait 2.
-        selectGuidanceType().
     } else {
         clearscreen.
         set TERMINAL:WIDTH to 35.
@@ -1313,14 +1294,14 @@ declare global function selectGuidanceType {
         V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
         print "PRESET GUIDANCE SELECTED".
         wait 2.
-        setAltTarget().
+        selectAltTarget().
     } else if ascentType = 1 {
         clearscreen.
         set TERMINAL:WIDTH to 28.
         set TERMINAL:HEIGHT to 1.
         V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
         print "PROCEDURAL GUIDANCE SELECTED".
-        setAltTarget().
+        selectAltTarget().
     } else {
         clearscreen.
         set TERMINAL:WIDTH to 35.
@@ -1332,25 +1313,43 @@ declare global function selectGuidanceType {
     }
 }
 
-declare global function setAltTarget {
+declare global function selectAltTarget {
     clearscreen.
-    set TERMINAL:WIDTH to 29.
-    set TERMINAL:HEIGHT to 8.
+    set TERMINAL:WIDTH to 47.
+    set TERMINAL:HEIGHT to 3.
     V1:PLAY( NOTE(700, 0.2) ).  // Starts a note at 700 Hz for 0.2 seconds.
     print "PLEASE SET A DESIRED ORBITAL ALTITUDE IN METERS".
     print "_______________________________________________".
     TERMINAL:INPUT:CLEAR().
-    set ascentType to TERMINAL:INPUT:GETCHAR().
+    set altTarget to TERMINAL:INPUT:GETCHAR().
+    if altTarget < 140000 {
+        clearscreen.
+        print "DESIRED ALTITUDE IS TOO LOW (INSIDE ATMOSPHERE)".
+        print "      PLEASE ENTER A NEW DESIRED ALTITUDE      ".
+        V1:PLAY( NOTE(400, 0.3) ).  // Starts a note at 400 Hz for 0.3 seconds.
+        wait 2.
+        selectAltTarget
+    } else {
+        massCheck().
+    }
+}
+
+declare global function massCheck {
+    // NOT IMPLEMENTED
+    // BYPASSED
+    break.
+    clearscreen.
+
 }
 
 telemetry().
 
 lock throttle to 1.
 AG1.
-STAGE.
+STAGE.      // starts engine run-up
 wait 2.5.
 AG2.
-STAGE.
+STAGE.      // release and liftoff
 
 until ALT:RADAR > (altTarget-20000) {      // initial ascent phase
     gravTurn().
@@ -1360,19 +1359,21 @@ until ALT:RADAR > (altTarget-20000) {      // initial ascent phase
     boosterSeperate().
 }
 
-set navSet to HEADING(launchAzimuth,0).
-set procNavSet to HEADING(launchAzimuth,0).
+RCS on.     // enables RCS for unpowered steering
 
-set SHIP:CONTROL:FORE to 1.
-set throttle to 1.
+set navSet to HEADING(launchAzimuth,0).       // overrides preset steering to horizontal for circularization
+set procNavSet to HEADING(launchAzimuth,0).   // overrides procedural steering to horizontal for circularization
+
+set SHIP:CONTROL:FORE to 1.     // burns forward using RCS to ullage the engine
+set throttle to 1.              // re-ignites second stage for circularization
 wait 1.
-set SHIP:CONTROL:FORE to 0.
+set SHIP:CONTROL:FORE to 0.     // stops ullage burn
 
 until ALT:PERIAPSIS = altTarget {
     telemetry().
 }
 
-set throttle to 0.
-RCS off.
+set throttle to 0.              // second stage engine cut-off
+RCS off.                        // disables RCS
 
-clearscreen.
+clearscreen.    // mission complete, payload delivered
